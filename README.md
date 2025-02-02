@@ -1,8 +1,8 @@
 # 30 Days DevOps Challenge - NBADataLake
 This repository contains the setup_nba_data_lake.py script, which automates the creation of a data lake for NBA analytics using AWS services. The script integrates Amazon S3, AWS Glue, and Amazon Athena, and sets up the infrastructure needed to store and query NBA-related data.
-- Amazon S3: For sending SMS and email notifications.
-- AWS Glue: To process and handle API data and notifications.
-- Amazon Athena: For scheduling automation tasks.
+- Amazon S3: For storing raw and processed NBA data.
+- AWS Glue: Process and handle data cataloging and transformation, making raw NBA data query-ready.
+- Amazon Athena: Enables seamless querying of data stored in S3 using standard SQL, eliminating the need for a dedicated database.
 - NBA APIs: For fetching live game scores.
 ![overview](images/overview.png)
 
@@ -22,7 +22,7 @@ The setup_nba_data_lake.py script performs the following actions:
 
 2. **Clone the project**
     ```bash
-    git clone https://api.sportsdata.io/v3/nba/scores/json/Players
+    git clone https://github.com/PeterOyelegbin/nba_data_lake.git
     ```
 
 3. **Create .env file:**
@@ -68,7 +68,7 @@ The setup_nba_data_lake.py script performs the following actions:
     WHERE Position = 'PG';
     ```
     ![query_data](images/query_data.png)
-    - Set your Athena output storage location to same S3 bucket created
+    - Set your Athena output storage location to the same S3 bucket created
     ![output_storage](images/output_storage.png)
     - Click Run and you should see an output if you scroll down under "Query Results"
     ![query_result](images/query_result.png)
@@ -78,13 +78,7 @@ The setup_nba_data_lake.py script performs the following actions:
     ![delete_resources](images/delete_resources.png)
 
 
-## **What We Learned**
-1. Securing AWS services with least privilege IAM policies.
-2. Integrating external APIs into cloud-based workflows.
-3. Automating the creation of services with a script.
-
-
-## **Future Enhancements**
-1. Automate data ingestion with AWS Lambda
-2. Implement a data transformation layer with AWS Glue ETL
-3. Add advanced analytics and visualizations (AWS QuickSight)
+## What I Learned
+1. Using least privilege IAM policies is vital for securing AWS services by granting only necessary access.
+2. Integrating external APIs into cloud workflows improves efficiency through seamless data exchange.
+3. Automating service creation via scripting streamlines deployment and reduces errors.
